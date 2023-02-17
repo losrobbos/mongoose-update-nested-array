@@ -1,0 +1,38 @@
+@BASE_URL = http://localhost:5000
+
+### GET USER
+GET {{BASE_URL}}/user
+
+### CREATE USER
+POST {{BASE_URL}}/user
+Content-Type: application/json
+
+{
+  "username": "losrobbos"
+}
+
+### GET POSTS
+GET {{BASE_URL}}/post
+
+### CREATE POST
+POST {{BASE_URL}}/post
+Content-Type: application/json
+
+{
+  "title": "Bla",
+  "text": "Blaaaaa",
+  "author": "63ef2d2b08eeda56361f44eb"
+}
+
+// CREATING a nested comment => POST CALL to subroute
+### 
+POST {{BASE_URL}}/post/63ef4d49f0c04783fafc59ab/comments
+Content-Type: application/json
+
+{
+  "text": "I think it is working!"
+}
+
+
+# DELETING a nested comment => DELETE call to subroute
+DELETE {{BASE_URL}}/post/63ef4d49f0c04783fafc59ab/comment/<yourCommentIdToDelete>
